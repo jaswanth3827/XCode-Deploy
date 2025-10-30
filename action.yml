@@ -111,7 +111,7 @@ runs:
       shell: bash
       run: |
         echo "[XCode-Deploy]: Resolving Package Dependencies..."
-        xcodebuild -resolvePackageDependencies -clonedSourcePackagesDirPath .
+        xcodebuild -resolvePackageDependencies -clonedSourcePackagesDirPath ./SourcePackages -verbose
     - name: Setup Scheme
       shell: bash
       run: |
