@@ -126,6 +126,12 @@ runs:
           scheme=${{ inputs.scheme }}
         fi
         echo "SCHEME=$scheme" >> $GITHUB_ENV
+    - name: Validate certificate base64
+      run: |
+        echo "$CERT" | base64 --decode > decoded.p12
+        file decoded.p12
+      env:
+        CERT: ${{ inputs.distribution-certificate-p12 }}
     - name: Import Certificates
       uses: apple-actions/import-codesign-certs@v1
       id: codesign
