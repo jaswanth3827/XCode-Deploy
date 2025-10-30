@@ -127,6 +127,7 @@ runs:
         fi
         echo "SCHEME=$scheme" >> $GITHUB_ENV
     - name: Validate certificate base64
+      shell: bash
       run: |
         echo "$CERT" | base64 --decode > decoded.p12
         file decoded.p12
